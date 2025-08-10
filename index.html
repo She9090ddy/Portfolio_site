@@ -155,7 +155,7 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             line-height: 1.2;
         }
@@ -165,7 +165,7 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             color: #555;
         }
@@ -282,7 +282,7 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-title h2 {
@@ -355,6 +355,7 @@
 
         .portfolio-info h3 {
             margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
         .portfolio-info p {
@@ -459,6 +460,8 @@
             max-height: 90vh;
             transform: scale(0.8);
             transition: transform 0.4s ease;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
         .zoom-overlay.active .zoomed-image {
@@ -473,11 +476,19 @@
             font-size: 2rem;
             cursor: pointer;
             transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
         }
 
         .close-zoom:hover {
             color: var(--primary);
             transform: rotate(90deg);
+            background: rgba(255,255,255,0.2);
         }
 
         /* Certifications Section */
@@ -703,7 +714,7 @@
             }
 
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
 
             .portfolio-item {
@@ -743,7 +754,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .hero p {
@@ -775,11 +786,19 @@
             .carousel-btn {
                 display: none;
             }
+            
+            .close-zoom {
+                top: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .hero-btns .btn {
@@ -791,11 +810,6 @@
 
             .cert-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .close-zoom {
-                top: 20px;
-                right: 20px;
             }
         }
     </style>
@@ -861,6 +875,8 @@
                         <div class="skill">Content Creation</div>
                         <div class="skill">Motion Graphics</div>
                         <div class="skill">Digital Marketing</div>
+                        <div class="skill">Graphic design</div>
+                        <div class="skill">video editing</div>
                     </div>
                 </div>
             </div>
@@ -884,7 +900,7 @@
                     <!-- Portfolio Item 1 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="lizzy.jpg" alt="Brand Identity Project">
+                            <img src="lizzy3-1.jpg" alt="Brand Identity Project">
                         </div>
                         <div class="portfolio-info">
                             <h3>Brand Identity Design</h3>
@@ -899,7 +915,7 @@
                     <!-- Portfolio Item 2 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="IMG-20250810-WA0001.jpg"  alt="Social Media Campaign">
+                            <img src="lizzy.jpg" alt="Social Media Campaign">
                         </div>
                         <div class="portfolio-info">
                             <h3>Social Media Campaign</h3>
@@ -945,7 +961,7 @@
                     <!-- Portfolio Item 5 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="lizzy3-1.jpg" alt="Flyer Design">
+                            <img src="https://images.unsplash.com/photo-1563720223880-7a073c56a1d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Flyer Design">
                         </div>
                         <div class="portfolio-info">
                             <h3>Flyer Design</h3>
@@ -960,7 +976,7 @@
                     <!-- Portfolio Item 6 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="adams-4.jpg" alt="Illustration">
+                            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" alt="Illustration">
                         </div>
                         <div class="portfolio-info">
                             <h3>Receipt Design</h3>
@@ -1048,7 +1064,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>shadrack@designstudio.com</p>
+                                <p>shedrack@designstudio.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1099,10 +1115,10 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">OShadrack</div>
+                <div class="footer-logo">OShedrack</div>
                 <p>Creating compelling visual experiences and powerful social media strategies</p>
                 <div class="copyright">
-                    <p>&copy; 2023 Ogbonna Shadrack. All Rights Reserved.</p>
+                    <p>&copy; 2023 Ogbonna Shedrack. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
@@ -1154,8 +1170,9 @@
         const dots = document.querySelectorAll('.carousel-dot');
         
         let currentIndex = 0;
-        const itemCount = carouselItems.length;
-        const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3;
+        let visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3;
+        const totalItems = carouselItems.length;
+        const totalPages = Math.ceil(totalItems / visibleItems);
         
         // Initialize carousel
         updateCarousel();
@@ -1167,13 +1184,17 @@
         }
         
         function nextSlide() {
-            currentIndex = (currentIndex + 1) % Math.ceil(itemCount / visibleItems);
-            updateCarousel();
+            if (currentIndex < totalPages - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
         }
         
         function prevSlide() {
-            currentIndex = (currentIndex - 1 + Math.ceil(itemCount / visibleItems)) % Math.ceil(itemCount / visibleItems);
-            updateCarousel();
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
         }
         
         function updateCarousel() {
@@ -1187,12 +1208,19 @@
             });
         }
         
-        // Event listeners
+        // Event listeners for buttons
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
         
+        // Event listeners for dots
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Update visible items on resize
+        window.addEventListener('resize', () => {
+            visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3;
+            updateCarousel();
         });
         
         // Image Zoom Effect
@@ -1232,6 +1260,31 @@
                 document.body.style.overflow = 'auto';
             }
         });
+        
+        // Enable swipe functionality for carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            
+            if (touchStartX - touchEndX > swipeThreshold) {
+                nextSlide();
+            }
+            
+            if (touchEndX - touchStartX > swipeThreshold) {
+                prevSlide();
+            }
+        }
     </script>
 </body>
 </html>
