@@ -324,6 +324,7 @@
             flex: 0 0 calc(33.333% - 30px);
             margin: 0 15px;
             min-width: 300px;
+            cursor: pointer;
         }
 
         .portfolio-item:hover {
@@ -334,6 +335,7 @@
         .portfolio-img {
             height: 250px;
             overflow: hidden;
+            position: relative;
         }
 
         .portfolio-img img {
@@ -428,6 +430,54 @@
 
         .carousel-btn.next {
             right: -25px;
+        }
+
+        /* Image Zoom Effect */
+        .zoom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .zoom-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .zoomed-image {
+            max-width: 90%;
+            max-height: 90vh;
+            transform: scale(0.8);
+            transition: transform 0.4s ease;
+        }
+
+        .zoom-overlay.active .zoomed-image {
+            transform: scale(1);
+        }
+
+        .close-zoom {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-zoom:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
         }
 
         /* Certifications Section */
@@ -742,6 +792,11 @@
             .cert-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .close-zoom {
+                top: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -775,7 +830,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Hello, I'm <span>Ogbonna Shedrack</span></h1>
-                <h2>Graphic Designer,video editor & Social Media Manager</h2>
+                <h2>Graphic Designer, video editor & Social Media Manager</h2>
                 <p>I create stunning visuals and manage social media strategies that help brands stand out and connect with their audience.</p>
                 <div class="hero-btns">
                     <a href="#portfolio" class="btn">View My Work</a>
@@ -790,24 +845,22 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-img">
-                    <img src="IMG-20240319-WA0230.jpg" alt="Ogbonna Shadrack">
+                    <img src="IMG-20240319-WA0230.jpg" alt="Ogbonna Shedrack">
                 </div>
                 <div class="about-text">
                     <h2>About Me</h2>
-                    <p>Hello! I'm Ogbonna Shedrack, a passionate graphic designer, video editor & social media manager with over 5 years of experience creating compelling visual content and managing social media strategies for diverse brands.</p>
+                    <p>Hello! I'm Ogbonna Shedrack, a passionate graphic designer, video editor and social media manager with over 5 years of experience creating compelling visual content and managing social media strategies for diverse brands.</p>
                     <p>My approach combines creative design with strategic thinking to deliver solutions that not only look great but also achieve business objectives. I specialize in brand identity, digital marketing, and social media management.</p>
                     
                     <h3>My Skills</h3>
                     <div class="skills">
-            
+                        
                         <div class="skill">Social Media Strategy</div>
                         <div class="skill">Brand Identity</div>
                         <div class="skill">UI/UX Design</div>
                         <div class="skill">Content Creation</div>
                         <div class="skill">Motion Graphics</div>
                         <div class="skill">Digital Marketing</div>
-                        <div class="skill">Graphics design</div>
-                        <div class="skill">video editing</div>
                     </div>
                 </div>
             </div>
@@ -831,13 +884,12 @@
                     <!-- Portfolio Item 1 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="lizzy3-1.jpg" alt="Brand Identity Project">
+                            <img src="lizzy.jpg" alt="Brand Identity Project">
                         </div>
                         <div class="portfolio-info">
                             <h3>Brand Identity Design</h3>
-                            <p>Complete brand identity package for a beauty brand  including logo, color palette, and brand guidelines.</p>
+                            <p>Complete brand identity package for a beauty brand including logo, color palette, and brand guidelines.</p>
                             <div class="portfolio-tags">
-                               
                                 <span class="portfolio-tag">Branding</span>
                                 <span class="portfolio-tag">Visual Identity</span>
                             </div>
@@ -847,117 +899,11 @@
                     <!-- Portfolio Item 2 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="lizzy.jpg" alt="Social Media Campaign">
+                            <img src="IMG-20250810-WA0001.jpg"  alt="Social Media Campaign">
                         </div>
                         <div class="portfolio-info">
                             <h3>Social Media Campaign</h3>
-                            <p>360° social media campaign for a beauty  brand that increased engagement by 120%.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0007.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0009.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0010.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                  <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0011.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0012.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0013.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Social Media</span>
-                                <span class="portfolio-tag">Marketing</span>
-                                <span class="portfolio-tag">Content Creation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src="IMG-20250613-WA0006.jpg" alt="Social Media Campaign">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Social Media Campaign</h3>
-                            <p>social media campaign.</p>
+                            <p>360° social media campaign for a beauty brand that increased engagement by 120%.</p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Social Media</span>
                                 <span class="portfolio-tag">Marketing</span>
@@ -969,15 +915,13 @@
                     <!-- Portfolio Item 3 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="GR2.jpg" alt="Logo  Design">
+                            <img src="joci1.jpg" alt="Logo Design">
                         </div>
                         <div class="portfolio-info">
                             <h3>Logo Design</h3>
                             <p>Logo design focused on user experience and conversion optimization.</p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Logo Design</span>
-                              
-                               
                             </div>
                         </div>
                     </div>
@@ -1001,15 +945,14 @@
                     <!-- Portfolio Item 5 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="adams-4.jpg" alt="Flyer  Design">
+                            <img src="lizzy3-1.jpg" alt="Flyer Design">
                         </div>
                         <div class="portfolio-info">
                             <h3>Flyer Design</h3>
-                            <p>Flyer design for a real estate company </p>
+                            <p>Flyer design for a real estate company</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">App Design</span>
-                                <span class="portfolio-tag">UI Design</span>
-                                <span class="portfolio-tag">Mobile</span>
+                                <span class="portfolio-tag">Print Design</span>
+                                <span class="portfolio-tag">Marketing</span>
                             </div>
                         </div>
                     </div>
@@ -1017,124 +960,14 @@
                     <!-- Portfolio Item 6 -->
                     <div class="portfolio-item">
                         <div class="portfolio-img">
-                            <img src="grow3.jpg" alt="Illustration">
+                            <img src="adams-4.jpg" alt="Illustration">
                         </div>
                         <div class="portfolio-info">
-                            <h3>Receipt design</h3>
+                            <h3>Receipt Design</h3>
                             <p>Receipt design for a business enterprise.</p>
                             <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <video width="410" controls>
-  <source src="VID-20250810-WA0006.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Receipt design</h3>
-                            <p>Receipt design for a business enterprise.</p>
-                            <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <video width="410" controls>
-  <source src="VID-20250810-WA0004.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-                        </video>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Receipt design</h3>
-                            <p>Receipt design for a business enterprise.</p>
-                            <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <video width="410" controls>
-  <source src="VID-20250810-WA0005.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video> 
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Receipt design</h3>
-                            <p>Receipt design for a business enterprise.</p>
-                            <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                             <video width="410" controls>
-  <source src="VID-20250810-WA0003.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-                             </video>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Receipt design</h3>
-                            <p>Receipt design for a business enterprise.</p>
-                            <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <video width=" controls>
-  <source src="VID-20250810-WA0002.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-                           </video>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Receipt design</h3>
-                            <p>Receipt design for a business enterprise.</p>
-                            <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-img">
-                            <img src=" IMG-20250810-WA0001.jpg " alt="Illustration">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Receipt design</h3>
-                            <p>Receipt design for a business enterprise.</p>
-                            <div class="portfolio-tags">
-                              
-                               
-                                <span class="portfolio-tag">Character Design</span>
+                                <span class="portfolio-tag">Print Design</span>
+                                <span class="portfolio-tag">Branding</span>
                             </div>
                         </div>
                     </div>
@@ -1153,6 +986,12 @@
         </div>
     </section>
 
+    <!-- Image Zoom Overlay -->
+    <div class="zoom-overlay">
+        <span class="close-zoom"><i class="fas fa-times"></i></span>
+        <img src="" alt="Zoomed Image" class="zoomed-image">
+    </div>
+
     <!-- Certifications Section -->
     <section class="certifications" id="certifications">
         <div class="container">
@@ -1167,13 +1006,13 @@
                             <i class="fas fa-certificate"></i>
                         </div>
                         <div class="cert-content">
-                            <h3>Certified Graphic Designer</h3>
-                            <span class="cert-issuer">Peace Sub</span>
-                            <span class="cert-date">Issued: May 2019</span>
+                            <h3>Adobe Certified Expert</h3>
+                            <span class="cert-issuer">Adobe Systems</span>
+                            <span class="cert-date">Issued: May 2022 | Expires: May 2025</span>
                         </div>
                     </div>
                     <p class="cert-desc">Certification in Photoshop, Illustrator & InDesign demonstrating advanced skills in Adobe Creative Suite.</p>
-                    <a href="https://drive.google.com/file/d/1ew97nLkv0sfjBGwiFRTEoIa6Q9pfy83k/view?usp=drivesdk " class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 
                 <div class="cert-card">
@@ -1182,17 +1021,14 @@
                             <i class="fas fa-certificate"></i>
                         </div>
                         <div class="cert-content">
-                            <h3>Online sales/Marketing</h3>
-                            <span class="cert-issuer">HP Foundation</span>
-                            <span class="cert-date">Issued: Nov 2024</span>
+                            <h3>Social Media Marketing Professional</h3>
+                            <span class="cert-issuer">Digital Marketing Institute</span>
+                            <span class="cert-date">Issued: Feb 2021 | No Expiration</span>
                         </div>
                     </div>
                     <p class="cert-desc">Comprehensive certification covering social media strategy, content creation, analytics, and paid advertising.</p>
-                    <a href="https://drive.google.com/file/d/1nEtSMOSPpTvMqc37Yjb-5TUmODd4rxZc/view?usp=drivesdk" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
-                
-                
-                        
             </div>
         </div>
     </section>
@@ -1212,21 +1048,21 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>ogbonnachinweokwo11@gmail.com</p>
+                                <p>shadrack@designstudio.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Phone</h4>
-                                <p>+2349020981622</p>
+                                <p>+1 (555) 123-4567</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h4>Location</h4>
-                                <p>A & G Estate lugbe, Abuja </p>
+                                <p>San Francisco, California</p>
                             </div>
                         </div>
                     </div>
@@ -1263,10 +1099,10 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">OShedrack</div>
+                <div class="footer-logo">OShadrack</div>
                 <p>Creating compelling visual experiences and powerful social media strategies</p>
                 <div class="copyright">
-                    <p>&copy; 2025 Ogbonna Shedrack. All Rights Reserved.</p>
+                    <p>&copy; 2023 Ogbonna Shadrack. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
@@ -1359,12 +1195,42 @@
             dot.addEventListener('click', () => goToSlide(index));
         });
         
-        // Auto-advance carousel (optional)
-        setInterval(nextSlide, 5000);
+        // Image Zoom Effect
+        const zoomOverlay = document.querySelector('.zoom-overlay');
+        const zoomedImage = document.querySelector('.zoomed-image');
+        const closeZoom = document.querySelector('.close-zoom');
+        const portfolioImages = document.querySelectorAll('.portfolio-img img');
         
-        // Update on window resize
-        window.addEventListener('resize', () => {
-            updateCarousel();
+        // Open zoom overlay when portfolio image is clicked
+        portfolioImages.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                zoomedImage.src = img.src;
+                zoomOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close zoom overlay
+        closeZoom.addEventListener('click', () => {
+            zoomOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close when clicking outside the image
+        zoomOverlay.addEventListener('click', (e) => {
+            if (e.target === zoomOverlay) {
+                zoomOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && zoomOverlay.classList.contains('active')) {
+                zoomOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
